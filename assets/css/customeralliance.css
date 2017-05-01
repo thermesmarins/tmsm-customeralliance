@@ -1,0 +1,56 @@
+/* Stats */
+
+.customeralliance-stats .glyphicon-info-sign{
+    margin-right: 10px;
+}
+.customeralliance-stats .jumbotron .last-paragraph{
+    margin-bottom: 0;
+}
+.customeralliance-stats .jumbotron{
+    height: auto;
+}
+
+.customeralliance-reviews .customeralliance-reviews-item{
+    display: none;
+}
+
+.customeralliance-reviews .customeralliance-reviews-item[data-page="1"]{
+    display: block;
+}
+
+.customeralliance-stats .customeralliance-reviews-item-rating-score .progress{
+    margin-bottom: 0;
+}
+
+.customeralliance-stats-bootstrap-2 .accordion-inner{
+    padding: 0 !important;
+    margin: 0;
+}
+
+.customeralliance-stats-bootstrap-2 .customeralliance-reviews-item-rating-item{
+    border-bottom: 1px solid #e5e5e5;
+    padding: 20px;
+}
+
+.customeralliance-stats-bootstrap-2 .customeralliance-reviews-item-rating-item.last{
+    border-bottom: 0;
+}
+.customeralliance-reviews-item-comment, .customeralliance-reviews-item-reply{
+    display: block;
+}
+.customeralliance-stats .jumbotron  .customeralliance-certificate-content p{
+    font-size:inherit;
+}
+
+/* Badge */
+
+.customeralliance-badge{
+    height: auto;
+}
+
+
+.customeralliance-badge .customeralliance-title,
+.customeralliance-badge .customeralliance-rating,
+.customeralliance-badge .customeralliance-content{
+    display: block;
+}
