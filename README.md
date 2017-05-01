@@ -1,8 +1,13 @@
-# tmsm-customeralliance
-wordpress, customeralliance
+TMSM Customer Alliance
+=================
 
-01
-06
+Features
+-----------
 
+* Stats shortcode
+* Reviews shortcode
 
-7427528
+TODO
+-----------
+
+* Better i18n
