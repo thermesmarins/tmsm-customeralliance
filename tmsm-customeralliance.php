@@ -1,24 +1,17 @@
 <?php
 /*
-Plugin Name: TMSM Customer Alliance
-Plugin URI: http://www.thalassotherapie.com
-Description: Customer Alliance Shortcode and Widget for stats and reviews
-Version: 1.0.0
-Author: Nicolas Mollet
-Author URI: http://www.nicolasmollet.com
+Plugin Name:       TMSM Customer Alliance
+Plugin URI:        https://github.com/thermesmarins/tmsm-customeralliance
+Description:       Customer Alliance Shortcode and Widget for stats and reviews
+Version:           1.0.0
+Author:            Nicolas Mollet
+Author URI:        https://github.com/nicomollet
+License:           GPL-2.0+
+License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+Text Domain:       tmsm-customeralliance
+Domain Path:       /languages
 Github Plugin URI: https://github.com/thermesmarins/tmsm-customeralliance
 Github Branch:     master
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 
@@ -28,14 +21,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 if ( ! defined ( 'ABSPATH' ) ) {
     exit;
 }
-
-
-
-/*
- * Example:
- * [customeralliance-stats id="xxx" access_key="xxx" lang="fr" bootstrap="X" theme="color|grey|black|white"]
- * [customeralliance-badge id="xxx" access_key="xxx" lang="fr" theme="color|grey|black|white"]
-*/
 
 
 class CustomerAlliance_Shortcode {
