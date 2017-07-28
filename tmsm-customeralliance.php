@@ -3,7 +3,7 @@
 Plugin Name:       TMSM Customer Alliance
 Plugin URI:        https://github.com/thermesmarins/tmsm-customeralliance
 Description:       Customer Alliance Shortcode and Widget for stats and reviews
-Version:           1.0.1
+Version:           1.0.2
 Author:            Nicolas Mollet
 Author URI:        https://github.com/nicomollet
 License:           GPL-2.0+

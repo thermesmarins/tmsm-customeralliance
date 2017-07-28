@@ -1,3 +1,6 @@
+### 1.0.2: July 28th, 2017
+* Critical fix
+
 ### 1.0.1: July 19th, 2017
 * Allow multiple and multilingual widgets on a single site 
 

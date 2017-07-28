@@ -41,14 +41,14 @@
 						<?= $customeralliance_labels[ $customeralliance_lang ]['header'] ?>
 					</h2>
 					<div class="customeralliance-rating" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-						<meta itemprop="itemreviewed" content="<?= esc_attr( $customeralliance_xml_reviews->business->name ) ?>">
-						<meta itemprop="ratingCount" content="<?= esc_attr( $customeralliance_xml_reviews->business->reviewCount ) ?>">
-						<meta itemprop="reviewCount" content="<?= $customeralliance_xml_statistics->globalStatistics->reviewCount ?>">
+						<meta itemprop="itemreviewed" content="<?= esc_attr( $customeralliance_reviews->business->name ) ?>">
+						<meta itemprop="ratingCount" content="<?= esc_attr( $customeralliance_reviews->business->reviewCount ) ?>">
+						<meta itemprop="reviewCount" content="<?= $customeralliance_stats->globalStatistics->reviewCount ?>">
 						<div class="customeralliance-global-rating">
 							<meta content="5" itemprop="bestRating">
 							<meta content="0" itemprop="worstRating">
-							<meta content="<?= esc_attr(round( floatval( $customeralliance_xml_statistics->globalStatistics->averageRatingPercentage /20 ),1 ) ) ?>" itemprop="ratingValue">
-							<span><?= round( floatval( $customeralliance_xml_statistics->globalStatistics->averageRatingPercentage ) ) ?></span>%
+							<meta content="<?= esc_attr(round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage /20 ),1 ) ) ?>" itemprop="ratingValue">
+							<span><?= round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage ) ) ?></span>%
 						</div>
 						<p>
 							<?= $customeralliance_labels[ $customeralliance_lang ]['reviewsnumber'] ?>
@@ -59,8 +59,8 @@
 				<div class="customeralliance-portals">
 					<h3><?= $customeralliance_labels[ $customeralliance_lang ]['averagerating'] ?></h3>
 					<div class="inside">
-						<?php if ( ! empty( $customeralliance_xml_statistics->portalStatistics->portal ) ) {
-							foreach ( $customeralliance_xml_statistics->portalStatistics->portal as $portal ) { ?>
+						<?php if ( ! empty( $customeralliance_stats->portalStatistics->portal ) ) {
+							foreach ( $customeralliance_stats->portalStatistics->portal as $portal ) { ?>
 								<div class="customeralliance-portals-item">
 									<span title="<?= esc_attr( $portal->name ) ?>"><?= $portal->name ?></span>
 									<strong><?= round( $portal->averageRatingPercentage ) ?>%</strong>
@@ -76,8 +76,8 @@
 				<div class="customeralliance-categories">
 					<h3><?= $customeralliance_labels[ $customeralliance_lang ]['categories'] ?></h3>
 					<div class="inside">
-						<?php if ( ! empty( $customeralliance_xml_statistics->globalStatistics->ratings->category ) ) {
-							foreach ( $customeralliance_xml_statistics->globalStatistics->ratings->category as $category ) {
+						<?php if ( ! empty( $customeralliance_stats->globalStatistics->ratings->category ) ) {
+							foreach ( $customeralliance_stats->globalStatistics->ratings->category as $category ) {
 								?>
 								<div class="customeralliance-categories-item">
 									<div class="category-rating">
@@ -105,17 +105,17 @@
 			</div>
 			<div class="span8 col-sm-8">
 
-				<?php if ( ! empty( $customeralliance_xml_reviews->reviews->review ) ) {
+				<?php if ( ! empty( $customeralliance_reviews->reviews->review ) ) {
 					$customeralliance_reviews_cpt     = 0;
 					$reviewpage_previous              = 0;
-					$customeralliance_reviews_total   = count( $customeralliance_xml_reviews->reviews->review );
+					$customeralliance_reviews_total   = count( $customeralliance_reviews->reviews->review );
 					$customeralliance_reviews_maxpage = ceil( $customeralliance_reviews_total / $customeralliance_config['reviewsperpage'] );
 					?>
 					<div class="customeralliance-reviews" data-total="<?= $customeralliance_reviews_total ?>" data-maxpage="<?= $customeralliance_reviews_maxpage ?>">
 
 						<?php
 
-						foreach ( $customeralliance_xml_reviews->reviews->review as $review ) {
+						foreach ( $customeralliance_reviews->reviews->review as $review ) {
 							if ( empty( $review->author ) ) {
 								$review->author = $customeralliance_labels[ $customeralliance_lang ]['anonymous'];
 							}
@@ -148,13 +148,13 @@
 													<span class="customeralliance-reviews-item-type"><?= $customeralliance_labels[ $customeralliance_lang ][ trim( $review->reviewerType ) ] ?></span>
 													<span class="customeralliance-reviews-item-age"><?= sprintf( $customeralliance_labels[ $customeralliance_lang ]['age'], $review->reviewerAge, $review->reviewerAge + 9 ) ?></span>
 
-											<span class="customeralliance-reviews-item-score" data-value="<?= round( floatval( $review->overallRating ) * 20 ) ?>">
+													<span class="customeralliance-reviews-item-score" data-value="<?= round( floatval( $review->overallRating ) * 20 ) ?>">
 												<?= round( floatval( $review->overallRating ) * 20 ) ?>%
 											</span>
-											<span class="customeralliance-reviews-item-comment">
+													<span class="customeralliance-reviews-item-comment">
 												<?= trim( $review->overallComment ) ?>
 											</span>
-											<span class="customeralliance-reviews-item-time">
+													<span class="customeralliance-reviews-item-time">
 												<?= $reviewdateago ?>
 											</span>
 													<?php if ( ! empty( $review->yourComment ) ) { ?>
@@ -203,7 +203,7 @@
 											</ul>
 
 											<div itemprop="review" itemscope="" itemtype="http://schema.org/Review" class="hidden">
-												<span itemprop="itemReviewed"><?= $customeralliance_xml_reviews->business->name ?></span>
+												<span itemprop="itemReviewed"><?= $customeralliance_reviews->business->name ?></span>
 												<span itemprop="author"><?= $review->author ?></span>
 												<time itemprop="datePublished" datetime="<?= $reviewdate->format( 'Y-m-d' ) ?>"><?= $reviewdate->format( 'r' ) ?></time>
 												<span itemprop="reviewBody"><?= trim( $review->overallComment ) ?></span>
