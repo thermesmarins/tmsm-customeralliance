@@ -37,11 +37,13 @@ class CustomerAlliance_Shortcode {
 	static $post_id;
 
 	static function init() {
-		add_shortcode( 'customeralliance-stats', array( __CLASS__, 'handle_shortcode_stats' ) );
-		add_shortcode( 'customeralliance-badge', array( __CLASS__, 'handle_shortcode_badge' ) );
-		add_shortcode( 'customeralliance-test', array( __CLASS__, 'handle_shortcode_test' ) );
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ) );
+		if(!is_admin()){
+			add_shortcode( 'customeralliance-stats', array( __CLASS__, 'handle_shortcode_stats' ) );
+			add_shortcode( 'customeralliance-badge', array( __CLASS__, 'handle_shortcode_badge' ) );
+			add_shortcode( 'customeralliance-test', array( __CLASS__, 'handle_shortcode_test' ) );
+			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ) );
+		}
 	}
 
 	static function update_xml() {
