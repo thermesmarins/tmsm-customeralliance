@@ -1,3 +1,7 @@
+### 1.0.4: December 28th, 2017
+* Convert lines to <br> to main comment
+* Hide certificate explaination
+
 ### 1.0.3: December 28th, 2017
 * Code refactoring using plugin boilerplate
 * Bootstrap independent
