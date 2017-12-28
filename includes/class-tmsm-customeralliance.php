@@ -67,11 +67,7 @@ class Tmsm_Customeralliance {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
-		} else {
-			$this->version = '1.0.0';
-		}
+		$this->version = TMSM_CUSTOMERALLIANCE_VERSION;
 		$this->plugin_name = 'tmsm-customeralliance';
 
 		$this->load_dependencies();
@@ -154,8 +150,8 @@ class Tmsm_Customeralliance {
 
 		$plugin_admin = new Tmsm_Customeralliance_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		//$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		//$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 	}
 
@@ -173,6 +169,7 @@ class Tmsm_Customeralliance {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
 	}
 
 	/**
