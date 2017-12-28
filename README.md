@@ -7,7 +7,7 @@ Features
 Customer Alliance Web Service integration using shortcodes
 
 * Badge shortcode (displays the average rating)
-* Reviews shortcode (display a full page with criterias average ratings and recent reviews)
+* Reviews shortcode (displays a full page with criterias average ratings and recent reviews)
 
 
 Shortcode example

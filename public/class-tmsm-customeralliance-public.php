@@ -270,7 +270,7 @@ $output .= '
 												'. round( floatval( $review->overallRating ) * 20 ) .'%
 											</span>
 													<span class="customeralliance-reviews-item-comment">
-												'. trim( $review->overallComment ) .'
+												'. nl2br( trim( $review->overallComment )) .'
 											</span>
 													<span class="customeralliance-reviews-item-time">
 												'. $reviewdateago .'
