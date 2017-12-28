@@ -4,16 +4,14 @@ TMSM Customer Alliance
 Features
 -----------
 
-* Stats shortcode
-* Reviews shortcode
+Customer Alliance Web Service integration using shortcodes
 
-TODO
------------
+* Badge shortcode (displays the average rating)
+* Reviews shortcode (display a full page with criterias average ratings and recent reviews)
 
-* Better i18n
 
 Shortcode example
 -----------
 
-[customeralliance-stats id="xxx" access_key="xxx" lang="fr" bootstrap="X" theme="color|grey|black|white"]
 [customeralliance-badge id="xxx" access_key="xxx" lang="fr" theme="color|grey|black|white"]
+[customeralliance-stats id="xxx" access_key="xxx" lang="fr" bootstrap="X" theme="color|grey|black|white"]

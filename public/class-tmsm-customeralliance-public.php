@@ -133,7 +133,7 @@ class Tmsm_Customeralliance_Public {
 	 * @since    1.0.3
 	 */
 	public function register_shortcodes() {
-		add_shortcode( 'customeralliance-stats', array( $this, 'stats_shortcode') );
+		add_shortcode( 'customeralliance-stats', array( $this, 'reviews_shortcode') );
 		add_shortcode( 'customeralliance-badge', array( $this, 'badge_shortcode') );
 	}
 
@@ -142,7 +142,7 @@ class Tmsm_Customeralliance_Public {
 	 *
 	 * @since    1.0.3
 	 */
-	public function stats_shortcode($atts) {
+	public function reviews_shortcode($atts) {
 		$atts = shortcode_atts( array(
 			'id'         => '',
 			'post_id'    => '',
@@ -329,10 +329,23 @@ $output .= '
 																		<span class="value">'. $rating->rating .'</span>&nbsp;<span class="max">/&nbsp;5</span>
 																	</div>
 
-															</div>
-															<div class="customeralliance-reviews-item-rating-comment">
+															</div>';
+
+															if(!empty($rating->comment)){
+																$output .='
+																<div class="customeralliance-reviews-item-rating-comment">
 																<p class="last-paragraph">'. $rating->comment .'</p>
-															</div>
+																</div>
+																';
+															}
+															else{
+																$output .='
+																<div class="customeralliance-reviews-item-rating-nocomment">
+																</div>
+																';
+															}
+
+														$output .='
 														</li>
 														';
 

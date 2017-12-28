@@ -1,3 +1,7 @@
+### 1.0.3: December 28th, 2017
+* Code refactoring using plugin boilerplate
+* Bootstrap independent
+
 ### 1.0.2: July 28th, 2017
 * Critical fix
 
