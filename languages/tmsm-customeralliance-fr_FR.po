@@ -1,25 +1,122 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMSM Customer Alliance\n"
-"POT-Creation-Date: 2017-12-27 17:21+0100\n"
-"PO-Revision-Date: 2017-12-27 17:22+0100\n"
+"POT-Creation-Date: 2017-12-28 11:20+0100\n"
+"PO-Revision-Date: 2017-12-28 11:23+0100\n"
+"Last-Translator: \n"
 "Language-Team: https://github.com/thermesmarins/\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.5\n"
-"X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Last-Translator: \n"
-"Language: fr\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../public/class-tmsm-customeralliance-public.php:239
-msgid "Read the customer reviews"
-msgstr "Lire les avis clients"
+#: ../public/class-tmsm-customeralliance-public.php:163
+msgid "Customer Alliance Logo"
+msgstr "Logo Customer Alliance"
 
-#: ../public/class-tmsm-customeralliance-public.php:239
+#: ../public/class-tmsm-customeralliance-public.php:168
+msgid "Independent reviews by Customer Alliance"
+msgstr "Avis collectés indépendamment par Customer Alliance"
+
+#: ../public/class-tmsm-customeralliance-public.php:171
+msgid "What is Customer Alliance Certificate?"
+msgstr "Qu’est-ce que le Certificat Customer Alliance ?"
+
+#: ../public/class-tmsm-customeralliance-public.php:174
+msgid ""
+"Customer Alliance is an independent review provider for businesses, helping "
+"them collect authentic customer feedback. This Review Certificate bridges "
+"the trust gap between businesses and you – the customer."
+msgstr ""
+"Customer Alliance est un fournisseur d’avis indépendant au service des "
+"entreprises. Nous les aidons à collecter des avis certifiés auprès de leurs "
+"clients. Ainsi, notre “Review Certificate” permet de créer une relation de "
+"confiance entre l’entreprise et vous - le client."
+
+#: ../public/class-tmsm-customeralliance-public.php:175
+msgid ""
+"<b>How does the review process work?</b><br/> Our questionnaire is sent to "
+"all customers; which means, every single review here was submitted by a real "
+"customer and was not manipulated."
+msgstr ""
+"<b>Comment les avis sont-ils collectés ?</b><br/> Notre questionnaire est "
+"envoyé à tous les clients. Par conséquent, chaque avis que vous trouverez a "
+"été laissé par un véritable client et ne peut avoir été manipulé. Seuls les "
+"clients ayant été en lien avec l’entreprise peuvent laisser un avis."
+
+#: ../public/class-tmsm-customeralliance-public.php:176
+msgid ""
+"<b>What is the Customer Satisfaction Index?</b><br/>The Customer "
+"Satisfaction Index offers an average rating based on all guest feedback. It "
+"shows you how happy the customers were with the business. 100% represents "
+"the highest possible score."
+msgstr ""
+"<b>Qu’est ce que l’indice de satisfaction client ?</b><br/>L’indice de "
+"satisfaction client est basé sur une moyenne calculée à partir de tous les "
+"avis clients. Il montre dans quelle mesure les clients sont satisfaits des "
+"prestations de l'entreprise, 100% étant la note la plus élevée."
+
+#: ../public/class-tmsm-customeralliance-public.php:190
+#: ../public/class-tmsm-customeralliance-public.php:458
 msgid "Our Customer Satisfaction Index"
 msgstr "Notre indice de satisfaction client"
+
+#: ../public/class-tmsm-customeralliance-public.php:203
+#, php-format
+msgid "%d reviews <em>on %d portals</em>"
+msgstr "%d avis <em>sur %d portails</em>"
+
+#: ../public/class-tmsm-customeralliance-public.php:210
+msgid "Average rating"
+msgstr "Note moyenne"
+
+#: ../public/class-tmsm-customeralliance-public.php:226
+msgid "Rating criterias"
+msgstr "Critères d'évaluation"
+
+#: ../public/class-tmsm-customeralliance-public.php:265
+msgid "Anonymous"
+msgstr "Anonyme"
+
+#: ../public/class-tmsm-customeralliance-public.php:277
+#, php-format
+msgid "%d year(s) ago"
+msgstr "il y a %d an(s)"
+
+#: ../public/class-tmsm-customeralliance-public.php:279
+#, php-format
+msgid "%d month(s) ago"
+msgstr "il y a %d mois"
+
+#: ../public/class-tmsm-customeralliance-public.php:281
+#, php-format
+msgid "%d day(s) ago"
+msgstr "il y a %d jour(s)"
+
+#: ../public/class-tmsm-customeralliance-public.php:284
+msgid "Business traveller"
+msgstr "Affaires"
+
+#: ../public/class-tmsm-customeralliance-public.php:284
+msgid "Leisure traveller"
+msgstr "Loisirs"
+
+#: ../public/class-tmsm-customeralliance-public.php:292
+#, php-format
+msgid "%d-%d years old"
+msgstr "%d-%d ans"
+
+#: ../public/class-tmsm-customeralliance-public.php:367
+msgid "Read more…"
+msgstr "Afficher plus d'avis"
+
+#: ../public/class-tmsm-customeralliance-public.php:458
+msgid "Read the customer reviews"
+msgstr "Lire les avis clients"

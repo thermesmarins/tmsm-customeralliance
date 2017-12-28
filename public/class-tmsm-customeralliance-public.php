@@ -168,7 +168,7 @@ class Tmsm_Customeralliance_Public {
 							'.__('Independent reviews by Customer Alliance','tmsm-customeralliance').'
 						</h3>
 						<p class="last-paragraph">
-							<a role="button" data-toggle="collapse" href="#whatiscustomeralliance" aria-expanded="false" aria-controls="whatiscustomeralliance" class="customeralliance-certificate-btn"><span class="glyphicon glyphicon-info-sign"></span>'.__('What is Customer Alliance Certificate?','tmsm-customeralliance').'</a>
+							<a role="button" href="#" aria-expanded="false" aria-controls="whatiscustomeralliance" id="customeralliance-certificate-btn"><span class="glyphicon glyphicon-info-sign"></span>'.__('What is Customer Alliance Certificate?','tmsm-customeralliance').'</a>
 						</p>
 						<div id="whatiscustomeralliance" class="customeralliance-certificate-content collapse">
 							<p>'.__('Customer Alliance is an independent review provider for businesses, helping them collect authentic customer feedback. This Review Certificate bridges the trust gap between businesses and you – the customer.','tmsm-customeralliance').'</p>
@@ -182,7 +182,7 @@ class Tmsm_Customeralliance_Public {
 		</div>
 
 
-		<div itemscope="" itemtype="http://schema.org/Hotel">
+		<div itemscope="" itemtype="http://schema.org/Hotel" class="customeralliance-index">
 
 
 				<div class="customeralliance-rating">
@@ -236,17 +236,15 @@ $output .= '
 									<span class="category-name">
 										'. $category->label .'
 									</span>
-									<div class="progress">
-										<div class="bar progress-bar" role="progressbar" aria-valuenow="'. esc_attr( $category->averageRatingPercentage ) .'" aria-valuemin="0" aria-valuemax="100" style="width:'. $category->averageRatingPercentage .'%">
+									<div class="customeralliance-progress">
+										<div class="customeralliance-progress-bar" role="progressbar" aria-valuenow="'. esc_attr( $category->averageRatingPercentage ) .'" aria-valuemin="0" aria-valuemax="100" style="width:'. $category->averageRatingPercentage .'%">
 											<span class="value">'. round( floatval( $category->averageRating ), 1 ) .'
 												&nbsp;/&nbsp;5</span>
 										</div>
 									</div>
 								</div>';
-
 							 }
 						}
-
 					$output.='
 					</div>
 				</div>
@@ -261,8 +259,6 @@ $output .= '
 					$customeralliance_reviews_maxpage = ceil( $customeralliance_reviews_total / $this->reviews_perpage );
 					$output.='
 					<div class="customeralliance-reviews" data-total="'. $customeralliance_reviews_total .'" data-maxpage="'. $customeralliance_reviews_maxpage .'">';
-
-
 
 						foreach ( $customeralliance_reviews->reviews->review as $review ) {
 							if ( empty( $review->author ) ) {
@@ -289,8 +285,8 @@ $output .= '
 
 							$output.='
 
-								<div class="customeralliance-reviews-item" id="customeralliance-reviews-item-'. $review->id .'" role="tablist" data-page="'. $reviewpage .'" '. ( $reviewpage != $reviewpage_previous ? 'id="customeralliance-reviews-page-' . $reviewpage . '"' : '' ) .'>
-												<a class="customeralliance-reviews-item-heading" role="tab" id="customeralliance-reviews-item-heading-'. $review->id .' '.  ( ! empty( $review->yourComment ) ? 'has-reply' : '' ) .'" data-parent="#customeralliance-reviews-item-'. $review->id .'" role="button" data-toggle="collapse" href="#customeralliance-reviews-item-group-'. $review->id .'" aria-expanded="true" aria-controls="customeralliance-reviews-item-heading-'. $review->id .'">
+								<div class="customeralliance-reviews-item" id="customeralliance-reviews-item-'. $review->id .'" role="tablist" data-page="'. $reviewpage .'" '. ( $reviewpage != $reviewpage_previous ? ' data-page-id="' . $reviewpage . '"' : '' ) .'>
+												<a class="customeralliance-reviews-item-heading" role="tab" id="customeralliance-reviews-item-heading-'. $review->id .' '.  ( ! empty( $review->yourComment ) ? 'has-reply' : '' ) .'" data-parent="#customeralliance-reviews-item-'. $review->id .'" role="button" href="#customeralliance-reviews-item-group-'. $review->id .'" aria-expanded="true" aria-controls="customeralliance-reviews-item-heading-'. $review->id .'">
 													<span class="customeralliance-reviews-item-name" title="'. esc_attr( $review->author ) .'">'. $review->author .'</span>
 													<span class="customeralliance-reviews-item-type">'.$reviewtype .'</span>
 													<span class="customeralliance-reviews-item-age">'. sprintf( __('%d-%d years old', 'tmsm-customeralliance'), $review->reviewerAge, $review->reviewerAge + 9 ) .'</span>
@@ -315,16 +311,16 @@ $output .= '
 												</a>
 
 										<div id="customeralliance-reviews-item-group-'. $review->id .'" class="customeralliance-reviews-item-group" role="tabpanel" aria-labelledby="customeralliance-reviews-item-heading-'. $review->id .'" aria-expanded="true">
-											<ul class="accordion-inner list-group customeralliance-reviews-item-rating">';
+											<ul class="customeralliance-reviews-item-rating">';
 
 												if ( ! empty( $review->subcategoryRatings->subcategoryRating ) ) {
 													foreach ( $review->subcategoryRatings->subcategoryRating as $rating ) {
 				$output .='
-														<li class="list-group-item customeralliance-reviews-item-rating-item">
+														<li class="customeralliance-reviews-item-rating-item">
 															<div class="customeralliance-reviews-item-rating-score">
 																<p class="first-heading">'.$rating->category .'</p>
-																	<div class="progress">
-																		<div class="bar progress-bar" role="progressbar" aria-valuenow="'. floatval( $rating->rating ) * 20 .'" aria-valuemin="0" aria-valuemax="100" style="width:'. floatval( $rating->rating ) * 20 .'%">
+																	<div class="customeralliance-progress">
+																		<div class="customeralliance-progress-bar" role="progressbar" aria-valuenow="'. floatval( $rating->rating ) * 20 .'" aria-valuemin="0" aria-valuemax="100" style="width:'. floatval( $rating->rating ) * 20 .'%">
 																			<span class="value">'. $rating->rating .'
 																				&nbsp;/&nbsp;5</span>
 																		</div>
@@ -362,15 +358,18 @@ $output .= '
 
 							$reviewpage_previous = $reviewpage;
 						}
+
+					if ( $customeralliance_reviews_maxpage > 1 ) {
+						$output .= '<p>
+						<a id="customeralliance-reviews-btnmore" href="#customeralliance-reviews-page-2" data-hrefmodel="customeralliance-reviews-page-" data-page="2" data-maxpage="'. $customeralliance_reviews_maxpage .'">'. __('Read more…', 'tmsm-customeralliance') .'</a>
+					</p>';
+					}
+
 				$output .='
 					</div>';
 				}
 
-				if ( $customeralliance_reviews_maxpage > 1 ) {
-					$output .= '<p>
-						<a id="customeralliance-reviews-btnmore" href="#customeralliance-reviews-page-2" data-hrefmodel="customeralliance-reviews-page-" data-page="2" data-maxpage="'. $customeralliance_reviews_maxpage .'">'. __('Read more…', 'tmsm-customeralliance') .'</a>
-					</p>';
-				}
+
 
 				$output .='
 

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMSM Customer Alliance\n"
-"POT-Creation-Date: 2017-12-27 17:21+0100\n"
+"POT-Creation-Date: 2017-12-28 11:19+0100\n"
 "PO-Revision-Date: 2014-10-24 21:08+0100\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: https://github.com/thermesmarins/\n"
@@ -18,10 +18,95 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../public/class-tmsm-customeralliance-public.php:239
-msgid "Read the customer reviews"
+#: ../public/class-tmsm-customeralliance-public.php:163
+msgid "Customer Alliance Logo"
 msgstr ""
 
-#: ../public/class-tmsm-customeralliance-public.php:239
+#: ../public/class-tmsm-customeralliance-public.php:168
+msgid "Independent reviews by Customer Alliance"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:171
+msgid "What is Customer Alliance Certificate?"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:174
+msgid ""
+"Customer Alliance is an independent review provider for "
+"businesses, helping them collect authentic customer feedback. "
+"This Review Certificate bridges the trust gap between businesses "
+"and you – the customer."
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:175
+msgid ""
+"<b>How does the review process work?</b><br/> Our questionnaire "
+"is sent to all customers; which means, every single review here "
+"was submitted by a real customer and was not manipulated."
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:176
+msgid ""
+"<b>What is the Customer Satisfaction Index?</b><br/>The Customer "
+"Satisfaction Index offers an average rating based on all guest "
+"feedback. It shows you how happy the customers were with the "
+"business. 100% represents the highest possible score."
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:190
+#: ../public/class-tmsm-customeralliance-public.php:458
 msgid "Our Customer Satisfaction Index"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:203
+#, php-format
+msgid "%d reviews <em>on %d portals</em>"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:210
+msgid "Average rating"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:226
+msgid "Rating criterias"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:265
+msgid "Anonymous"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:277
+#, php-format
+msgid "%d year(s) ago"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:279
+#, php-format
+msgid "%d month(s) ago"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:281
+#, php-format
+msgid "%d day(s) ago"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:284
+msgid "Business traveller"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:284
+msgid "Leisure traveller"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:292
+#, php-format
+msgid "%d-%d years old"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:367
+msgid "Read more…"
+msgstr ""
+
+#: ../public/class-tmsm-customeralliance-public.php:458
+msgid "Read the customer reviews"
 msgstr ""
