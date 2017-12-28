@@ -64,7 +64,7 @@
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
-  background-color: #fff;
+  background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
 .customeralliance-reviews-item-rating-value{
@@ -124,26 +124,9 @@
   margin-bottom: 0;
 }
 
-.customeralliance-stats-bootstrap-2 .accordion-inner{
-  padding: 0 !important;
-  margin: 0;
-}
-
-.customeralliance-stats-bootstrap-2 .customeralliance-reviews-item-rating-item{
-  border-bottom: 1px solid #e5e5e5;
-  padding: 20px;
-}
-
-.customeralliance-stats-bootstrap-2 .customeralliance-reviews-item-rating-item.last{
-  border-bottom: 0;
-}
 .customeralliance-reviews-item-comment, .customeralliance-reviews-item-reply{
   display: block;
 }
-.customeralliance-stats .jumbotron  .customeralliance-certificate-content p{
-  font-size:inherit;
-}
-
 
 
 .customeralliance-badge{

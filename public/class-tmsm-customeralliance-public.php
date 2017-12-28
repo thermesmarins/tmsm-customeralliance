@@ -88,18 +88,6 @@ class Tmsm_Customeralliance_Public {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Tmsm_Customeralliance_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Tmsm_Customeralliance_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/tmsm-customeralliance-public.css', array(), $this->version, 'all' );
 
 	}
@@ -110,18 +98,6 @@ class Tmsm_Customeralliance_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Tmsm_Customeralliance_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Tmsm_Customeralliance_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/tmsm-customeralliance-public.js', array( 'jquery' ), $this->version, true );
 
@@ -149,14 +125,13 @@ class Tmsm_Customeralliance_Public {
 			'access_key' => '',
 			'lang'       => 'fr',
 			'theme'      => 'color',
-			'bootstrap'  => '3',
 		), $atts, 'customeralliance-stats' );
 
 		$customeralliance_stats = $this->customeralliance_transient_stats( $atts['id'], $atts['access_key'], $atts['lang'] );
 
 		$customeralliance_reviews = $this->customeralliance_transient_reviews( $atts['id'], $atts['access_key'], $atts['lang'] );
 
-		$output = '<div class="customeralliance-stats customeralliance-stats-bootstrap-'. $atts['bootstrap'] .'">
+		$output = '<div class="customeralliance-stats">
 
 		<div class="customeralliance-intro">
 					<div class="customeralliance-logo">
@@ -456,7 +431,6 @@ $output .= '
 			'access_key' => '',
 			'lang'       => 'fr',
 			'theme'      => 'color',
-			'bootstrap'  => '',
 		), $atts, 'customeralliance-badge' );
 
 		$customeralliance_stats = $this->customeralliance_transient_stats( $atts['id'], $atts['access_key'], $atts['lang'] );
@@ -471,7 +445,7 @@ $output .= '
 
 		$output = '';
 		if(!empty($customeralliance_stats)){
-			$output = '<div class="customeralliance-badge customeralliance-badge-bootstrap-'.$atts['bootstrap'].'" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"><meta itemprop="itemreviewed" content="'.esc_attr( $customeralliance_reviews->business->name ) .'"><meta itemprop="ratingCount" content="'.esc_attr( $customeralliance_reviews->business->reviewCount ).'"><meta itemprop="reviewCount" content="'. $customeralliance_stats->globalStatistics->reviewCount .'"><meta content="5" itemprop="bestRating"><meta content="0" itemprop="worstRating"><meta content="'. esc_attr(round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage /20 ),1 ) ) .'" itemprop="ratingValue"><a href="'. $link .'" title="'. esc_attr(__('Read the customer reviews','tmsm-customeralliance')).'"><span class="customeralliance-title">'. __('Our Customer Satisfaction Index','tmsm-customeralliance') .'</span><span class="customeralliance-rating">'. round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage ) ) .'%</span><span class="customeralliance-content">'. sprintf( '%d reviews <em>on %d portals</em>', $customeralliance_stats->globalStatistics->reviewCount, $customeralliance_stats->globalStatistics->portalCount ).'</span><span class="customeralliance-more">'. esc_attr(__('Read the customer reviews','tmsm-customeralliance')).'</span><span class="customeralliance-logo"><img width="191" height="161" src="'. plugin_dir_url( __FILE__ ) . 'img/customeralliance-logo-small-'.$atts['theme'].'.png" alt="'. __('Read the customer reviews','tmsm-customeralliance') .'"></span></a></div>';
+			$output = '<div class="customeralliance-badge" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"><meta itemprop="itemreviewed" content="'.esc_attr( $customeralliance_reviews->business->name ) .'"><meta itemprop="ratingCount" content="'.esc_attr( $customeralliance_reviews->business->reviewCount ).'"><meta itemprop="reviewCount" content="'. $customeralliance_stats->globalStatistics->reviewCount .'"><meta content="5" itemprop="bestRating"><meta content="0" itemprop="worstRating"><meta content="'. esc_attr(round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage /20 ),1 ) ) .'" itemprop="ratingValue"><a href="'. $link .'" title="'. esc_attr(__('Read the customer reviews','tmsm-customeralliance')).'"><span class="customeralliance-title">'. __('Our Customer Satisfaction Index','tmsm-customeralliance') .'</span><span class="customeralliance-rating">'. round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage ) ) .'%</span><span class="customeralliance-content">'. sprintf( '%d reviews <em>on %d portals</em>', $customeralliance_stats->globalStatistics->reviewCount, $customeralliance_stats->globalStatistics->portalCount ).'</span><span class="customeralliance-more">'. esc_attr(__('Read the customer reviews','tmsm-customeralliance')).'</span><span class="customeralliance-logo"><img width="191" height="161" src="'. plugin_dir_url( __FILE__ ) . 'img/customeralliance-logo-small-'.$atts['theme'].'.png" alt="'. __('Read the customer reviews','tmsm-customeralliance') .'"></span></a></div>';
 		}
 		return $output;
 	}

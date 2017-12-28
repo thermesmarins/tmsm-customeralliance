@@ -14,4 +14,4 @@ Shortcode example
 -----------
 
 [customeralliance-badge id="xxx" access_key="xxx" lang="fr" theme="color|grey|black|white"]
-[customeralliance-stats id="xxx" access_key="xxx" lang="fr" bootstrap="X" theme="color|grey|black|white"]
+[customeralliance-stats id="xxx" access_key="xxx" lang="fr" theme="color|grey|black|white"]
