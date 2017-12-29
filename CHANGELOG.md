@@ -1,3 +1,7 @@
+### 1.0.6: December 29th, 2017
+* Fix closing divs 
+* Style for score ratings 
+
 ### 1.0.5: December 29th, 2017
 * Default style for badge
 * Fix get data when transient if empty
