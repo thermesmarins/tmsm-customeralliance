@@ -134,25 +134,22 @@ class Tmsm_Customeralliance_Public {
 		$output = '<div class="customeralliance-stats">
 
 		<div class="customeralliance-intro">
-					<div class="customeralliance-logo">
-						<img src="'. plugin_dir_url( __FILE__ ) . 'img/customeralliance-logo-big-'.$atts['theme'].'.png'.'" alt="'.esc_attr__('Customer Alliance Logo','tmsm-customeralliance').'">
-					</div>
+			<div class="customeralliance-logo">
+				<img src="'. plugin_dir_url( __FILE__ ) . 'img/customeralliance-logo-big-'.$atts['theme'].'.png'.'" alt="'.esc_attr__('Customer Alliance Logo','tmsm-customeralliance').'">
+			</div>
 
-					<div class="customeralliance-about">
-						<h3>
-							'.__('Independent reviews by Customer Alliance','tmsm-customeralliance').'
-						</h3>
-						<p class="last-paragraph">
-							<a role="button" href="#" aria-expanded="false" aria-controls="whatiscustomeralliance" id="customeralliance-certificate-btn"><span class="glyphicon glyphicon-info-sign"></span>'.__('What is Customer Alliance Certificate?','tmsm-customeralliance').'</a>
-						</p>
-						<div id="whatiscustomeralliance" class="customeralliance-certificate-content collapse">
-							<p>'.__('Customer Alliance is an independent review provider for businesses, helping them collect authentic customer feedback. This Review Certificate bridges the trust gap between businesses and you – the customer.','tmsm-customeralliance').'</p>
-							<p>'.__('<b>How does the review process work?</b><br/> Our questionnaire is sent to all customers; which means, every single review here was submitted by a real customer and was not manipulated.','tmsm-customeralliance').'</p>
-							<p class="last-paragraph">'.__('<b>What is the Customer Satisfaction Index?</b><br/>The Customer Satisfaction Index offers an average rating based on all guest feedback. It shows you how happy the customers were with the business. 100% represents the highest possible score.','tmsm-customeralliance').'</p>
-						</div>
-					</div>
+			<div class="customeralliance-about">
+				<h3>
+					'.__('Independent reviews by Customer Alliance','tmsm-customeralliance').'
+				</h3>
+				<p class="last-paragraph">
+					<a role="button" href="#" aria-expanded="false" aria-controls="whatiscustomeralliance" id="customeralliance-certificate-btn"><span class="glyphicon glyphicon-info-sign"></span>'.__('What is Customer Alliance Certificate?','tmsm-customeralliance').'</a>
+				</p>
+				<div id="whatiscustomeralliance" class="customeralliance-certificate-content collapse">
+					<p>'.__('Customer Alliance is an independent review provider for businesses, helping them collect authentic customer feedback. This Review Certificate bridges the trust gap between businesses and you – the customer.','tmsm-customeralliance').'</p>
+					<p>'.__('<b>How does the review process work?</b><br/> Our questionnaire is sent to all customers; which means, every single review here was submitted by a real customer and was not manipulated.','tmsm-customeralliance').'</p>
+					<p class="last-paragraph">'.__('<b>What is the Customer Satisfaction Index?</b><br/>The Customer Satisfaction Index offers an average rating based on all guest feedback. It shows you how happy the customers were with the business. 100% represents the highest possible score.','tmsm-customeralliance').'</p>
 				</div>
-
 			</div>
 		</div>
 

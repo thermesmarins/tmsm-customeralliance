@@ -9,6 +9,15 @@
   padding: 5px;
 }
 
+.customeralliance-index .customeralliance-portals .customeralliance-portals-item{
+  position: relative;
+}
+.customeralliance-index .customeralliance-portals strong {
+  position: absolute;
+  display: inline-block;
+  right: 10px;
+}
+
 .customeralliance-categories{
   margin-bottom: 20px;
 }
