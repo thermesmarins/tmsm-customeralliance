@@ -1,3 +1,7 @@
+### 1.0.7: December 29th, 2017
+* Fix html markup, too much closing tags
+* Update default style
+
 ### 1.0.6: December 29th, 2017
 * Fix closing divs 
 * Style for score ratings 
