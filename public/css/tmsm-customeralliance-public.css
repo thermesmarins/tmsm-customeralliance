@@ -21,7 +21,9 @@
 .customeralliance-categories{
   margin-bottom: 20px;
 }
-
+.customeralliance-categories .customeralliance-categories-item{
+  margin-bottom: 10px;
+}
 .customeralliance-categories .category-rating{
   display: none;
 }
@@ -106,7 +108,7 @@
   background: rgba(0, 0, 0, 0.15);
   display: block;
 }
-.customeralliance-reviews-item-heading:hover{
+.customeralliance-reviews-item-heading:hover, .customeralliance-reviews-item-heading:active{
   background: rgba(0, 0, 0, 0.25);
   text-decoration: none;
 }
