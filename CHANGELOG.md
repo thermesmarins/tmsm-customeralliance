@@ -1,3 +1,7 @@
+### 1.0.5: December 29th, 2017
+* Default style for badge
+* Fix get data when transient if empty
+
 ### 1.0.4: December 28th, 2017
 * Convert lines to <br> to main comment
 * Hide certificate explaination
