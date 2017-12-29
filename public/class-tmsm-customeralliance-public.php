@@ -157,72 +157,72 @@ class Tmsm_Customeralliance_Public {
 		<div itemscope="" itemtype="http://schema.org/Hotel" class="customeralliance-index">
 
 
-				<div class="customeralliance-rating">
-					<h2>
-						'.__('Our Customer Satisfaction Index','tmsm-customeralliance').'
-					</h2>
-					<div class="customeralliance-rating" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-						<meta itemprop="itemreviewed" content="'. esc_attr( $customeralliance_reviews->business->name ) .'">
-						<meta itemprop="ratingCount" content="'. esc_attr( $customeralliance_reviews->business->reviewCount ) .'">
-						<meta itemprop="reviewCount" content="'.$customeralliance_stats->globalStatistics->reviewCount .'">
-						<div class="customeralliance-global-rating">
-							<meta content="5" itemprop="bestRating">
-							<meta content="0" itemprop="worstRating">
-							<meta content="'. esc_attr(round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage /20 ),1 ) ) .'" itemprop="ratingValue">
-							<span>'. round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage ) ) .'</span>%
-						</div>
-						<p>
-							'.sprintf( __('%d reviews <em>on %d portals</em>','tmsm-customeralliance'), $customeralliance_stats->globalStatistics->reviewCount,
-				$customeralliance_stats->globalStatistics->portalCount ).'
-						</p>
+			<div class="customeralliance-rating">
+				<h2>
+					'.__('Our Customer Satisfaction Index','tmsm-customeralliance').'
+				</h2>
+				<div class="customeralliance-rating" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+					<meta itemprop="itemreviewed" content="'. esc_attr( $customeralliance_reviews->business->name ) .'">
+					<meta itemprop="ratingCount" content="'. esc_attr( $customeralliance_reviews->business->reviewCount ) .'">
+					<meta itemprop="reviewCount" content="'.$customeralliance_stats->globalStatistics->reviewCount .'">
+					<div class="customeralliance-global-rating">
+						<meta content="5" itemprop="bestRating">
+						<meta content="0" itemprop="worstRating">
+						<meta content="'. esc_attr(round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage /20 ),1 ) ) .'" itemprop="ratingValue">
+						<span>'. round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage ) ) .'</span>%
 					</div>
+					<p>
+						'.sprintf( __('%d reviews <em>on %d portals</em>','tmsm-customeralliance'), $customeralliance_stats->globalStatistics->reviewCount,
+			$customeralliance_stats->globalStatistics->portalCount ).'
+					</p>
 				</div>
+			</div>
 
-				<div class="customeralliance-portals">
-					<h3>'. __('Average rating','tmsm-customeralliance') .'</h3>
-					<div class="inside">';
-						if ( ! empty( $customeralliance_stats->portalStatistics->portal ) ) {
-							foreach ( $customeralliance_stats->portalStatistics->portal as $portal ) {
-								$output .='
-								<div class="customeralliance-portals-item">
-									<span title="'. esc_attr( $portal->name ) .'">'. $portal->name .'</span>
-									<strong>'. round( $portal->averageRatingPercentage ) .'%</strong>
-								</div>';
-							}
+			<div class="customeralliance-portals">
+				<h3>'. __('Average rating','tmsm-customeralliance') .'</h3>
+				<div class="inside">';
+					if ( ! empty( $customeralliance_stats->portalStatistics->portal ) ) {
+						foreach ( $customeralliance_stats->portalStatistics->portal as $portal ) {
+							$output .='
+							<div class="customeralliance-portals-item">
+								<span title="'. esc_attr( $portal->name ) .'">'. $portal->name .'</span>
+								<strong>'. round( $portal->averageRatingPercentage ) .'%</strong>
+							</div>';
 						}
+					}
 $output .= '
-					</div>
 				</div>
+			</div>
 
-				<div class="customeralliance-categories">
-					<h3>'. __('Rating criterias','tmsm-customeralliance') .'</h3>
-					<div class="inside">';
+			<div class="customeralliance-categories">
+				<h3>'. __('Rating criterias','tmsm-customeralliance') .'</h3>
+				<div class="inside">';
 
-						if ( ! empty( $customeralliance_stats->globalStatistics->ratings->category ) ) {
-							foreach ( $customeralliance_stats->globalStatistics->ratings->category as $category ) {
-								$output.='
-								<div class="customeralliance-categories-item">
-									<div class="category-rating">
-										<span class="value">'. $category->averageRating .'</span>&nbsp;<span class="max">/&nbsp;5</span>
+					if ( ! empty( $customeralliance_stats->globalStatistics->ratings->category ) ) {
+						foreach ( $customeralliance_stats->globalStatistics->ratings->category as $category ) {
+							$output.='
+							<div class="customeralliance-categories-item">
+								<div class="category-rating">
+									<span class="value">'. $category->averageRating .'</span>&nbsp;<span class="max">/&nbsp;5</span>
+								</div>
+								<span class="category-name">
+									'. $category->label .'
+								</span>
+								<div class="customeralliance-progress">
+									<div class="customeralliance-progress-bar" role="progressbar" aria-valuenow="'. esc_attr( $category->averageRatingPercentage ) .'" aria-valuemin="0" aria-valuemax="100" style="width:'. $category->averageRatingPercentage .'%">
+										<span class="value">'. round( floatval( $category->averageRating ), 1 ) .'
+											&nbsp;/&nbsp;5</span>
 									</div>
-									<span class="category-name">
-										'. $category->label .'
-									</span>
-									<div class="customeralliance-progress">
-										<div class="customeralliance-progress-bar" role="progressbar" aria-valuenow="'. esc_attr( $category->averageRatingPercentage ) .'" aria-valuemin="0" aria-valuemax="100" style="width:'. $category->averageRatingPercentage .'%">
-											<span class="value">'. round( floatval( $category->averageRating ), 1 ) .'
-												&nbsp;/&nbsp;5</span>
-										</div>
-									</div>
-								</div>';
-							 }
-						}
-					$output.='
-					</div>
+								</div>
+							</div>';
+						 }
+					}
+				$output.='
 				</div>
+			</div>
 
 
-			</div>';
+		</div>'; // index
 
 				if ( ! empty( $customeralliance_reviews->reviews->review ) ) {
 					$customeralliance_reviews_cpt     = 0;
@@ -358,11 +358,6 @@ $output .= '
 
 				$output .='
 
-			</div>
-
-		</div>
-
-	</div>
 
 </div>';
 
