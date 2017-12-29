@@ -1,3 +1,6 @@
+### 1.0.8: December 29th, 2017
+* Fix link to reviews
+
 ### 1.0.7: December 29th, 2017
 * Fix html markup, too much closing tags
 * Update default style
