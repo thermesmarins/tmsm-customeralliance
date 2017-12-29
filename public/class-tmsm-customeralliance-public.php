@@ -388,8 +388,8 @@ $output .= '
 		$transient = get_transient( 'customeralliance_stats_' . $lang . '_' . $customer_id );
 		if ( empty( $transient )) {
 			$file = simplexml_load_file( $url );
-			$transient = $file;
-			set_transient( 'customeralliance_stats_' . $lang . '_' . $customer_id, $file->asXML(), $this->transient_cache );
+			$transient = $file->asXML();
+			set_transient( 'customeralliance_stats_' . $lang . '_' . $customer_id, $transient, $this->transient_cache );
 		}
 
 		$customeralliance_stats = simplexml_load_string( $transient );
@@ -412,8 +412,8 @@ $output .= '
 		$transient = get_transient( 'customeralliance_reviews_' . $lang . '_' . $customer_id );
 		if ( empty( $transient )) {
 			$file = simplexml_load_file( $url );
-			$transient = $file;
-			set_transient( 'customeralliance_reviews_' . $lang . '_' . $customer_id, $file->asXML(), $this->transient_cache );
+			$transient = $file->asXML();
+			set_transient( 'customeralliance_reviews_' . $lang . '_' . $customer_id, $transient, $this->transient_cache );
 		}
 
 		$customeralliance_reviews = simplexml_load_string( $transient );
