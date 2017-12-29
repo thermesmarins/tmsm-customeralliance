@@ -121,7 +121,6 @@ class Tmsm_Customeralliance_Public {
 	public function reviews_shortcode($atts) {
 		$atts = shortcode_atts( array(
 			'id'         => '',
-			'post_id'    => '',
 			'access_key' => '',
 			'lang'       => 'fr',
 			'theme'      => 'color',
@@ -420,6 +419,7 @@ $output .= '
 	public function badge_shortcode($atts) {
 		$atts = shortcode_atts( array(
 			'id'         => '',
+			'post_id'    => '',
 			'access_key' => '',
 			'lang'       => 'fr',
 			'theme'      => 'color',
