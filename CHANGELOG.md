@@ -1,3 +1,6 @@
+### 1.0.9: January 23rd, 2018
+* Adjust frontend CSS (thanks to Rémy)
+
 ### 1.0.8: December 29th, 2017
 * Fix link to reviews
 
