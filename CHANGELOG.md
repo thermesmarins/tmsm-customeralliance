@@ -1,3 +1,6 @@
+### 1.0.10: February 27rd, 2018
+* Adjust frontend CSS (thanks to Rémy again)
+
 ### 1.0.9: January 23rd, 2018
 * Adjust frontend CSS (thanks to Rémy)
 
