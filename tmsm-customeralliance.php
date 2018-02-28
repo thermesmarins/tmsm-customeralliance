@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       TMSM Customer Alliance
  * Plugin URI:        https://github.com/thermesmarins/tmsm-customeralliance
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Shortcodes for displaying a badge and a reviews page from Customer Alliance reviews
  * Version:           1.0.10
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
