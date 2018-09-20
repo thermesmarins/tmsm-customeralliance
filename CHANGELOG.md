@@ -1,4 +1,5 @@
-### Unreleased
+### 1.0.11: September 20th, 2018
+* Avoid php errors when customer alliance feed is not available
 * Plugin description
 
 ### 1.0.10: February 27rd, 2018

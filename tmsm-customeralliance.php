@@ -16,7 +16,7 @@
  * Plugin Name:       TMSM Customer Alliance
  * Plugin URI:        https://github.com/thermesmarins/tmsm-customeralliance
  * Description:       Shortcodes for displaying a badge and a reviews page from Customer Alliance reviews
- * Version:           1.0.10
+ * Version:           1.0.11
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
  * Requires PHP:      5.6
@@ -38,7 +38,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'TMSM_CUSTOMERALLIANCE_VERSION', '1.0.10' );
+define( 'TMSM_CUSTOMERALLIANCE_VERSION', '1.0.11' );
 
 /**
  * The code that runs during plugin activation.
