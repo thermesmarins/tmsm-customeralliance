@@ -1,4 +1,5 @@
 * Fix Schema markup, using ld+json scripts
+* Hotel Schema picks the Organization image from Yoast SEO or Rank Math
 
 ### 1.0.11: September 20th, 2018
 * Avoid php errors when customer alliance feed is not available

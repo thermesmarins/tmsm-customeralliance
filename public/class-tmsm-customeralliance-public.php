@@ -178,7 +178,7 @@ class Tmsm_Customeralliance_Public {
 				<h2>
 					' . __( 'Our Customer Satisfaction Index', 'tmsm-customeralliance' ) . '
 				</h2>
-				<div class="customeralliance-rating"  itemscope="" >
+				<div class="customeralliance-rating">
 					<meta  content="' . esc_attr( $customeralliance_reviews->business->name ) . '">
 					<meta  content="' . esc_attr( $customeralliance_reviews->business->reviewCount ) . '">
 					<meta  content="' . $customeralliance_stats->globalStatistics->reviewCount . '">
@@ -411,7 +411,7 @@ class Tmsm_Customeralliance_Public {
 				    "bestRating": "5"
 				  },
 				  "review":['.implode(',', $reviews_json).'],
-				  "name": "'.esc_attr( $customeralliance_reviews->business->name ) .'", '.(!empty($image) ? '"image": "'.WPSEO_Options::get( 'company_logo' ) .'",' : '').' "url": "'.site_url().'", "priceRange": "$$"
+				  "name": "'.esc_attr( $customeralliance_reviews->business->name ) .'", '.(!empty($image) ? '"image": "'.$image .'",' : '').' "url": "'.site_url().'", "priceRange": "$$"
 				}
 				</script>';
 
@@ -527,6 +527,9 @@ class Tmsm_Customeralliance_Public {
 			if(class_exists('WPSEO_Options') && !empty(WPSEO_Options::get( 'company_logo' ))){
 				$image = WPSEO_Options::get( 'company_logo' );
 			}
+			if(class_exists('RankMath\Helper')){
+				$image = RankMath\Helper::get_settings( 'titles.knowledgegraph_logo' );
+			}
 
 			$output.='
 			<script type="application/ld+json">
@@ -542,8 +545,7 @@ class Tmsm_Customeralliance_Public {
 			    "bestRating": "5"
 			  },
 			  "name": "'.esc_attr( $customeralliance_reviews->business->name ) .'",
-			  '.(!empty($image) ? '"image": "'.WPSEO_Options::get( 'company_logo' ) .'"' : '').',
-			  
+			  '.(!empty($image) ? '"image": "'.$image .'",' : '').'			  
 			  "url": "'.site_url().'",
 			  "priceRange": "$$"
 			}
