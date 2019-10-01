@@ -130,10 +130,16 @@ class Tmsm_Customeralliance_Public {
 
 		$customeralliance_reviews = $this->customeralliance_transient_reviews( $atts['id'], $atts['access_key'], $atts['lang'] );
 
+		$image = null;
+		if(class_exists('WPSEO_Options') && !empty(WPSEO_Options::get( 'company_logo' ))){
+			$image = WPSEO_Options::get( 'company_logo' );
+		}
+
 		$output = '';
 
-		if ( ! empty( $customeralliance_stats ) && ! empty( $customeralliance_reviews ) ) {
 
+		if ( ! empty( $customeralliance_stats ) && ! empty( $customeralliance_reviews ) ) {
+			print_r($customeralliance_reviews->business,  true);
 			$output
 				.= '<div class="customeralliance-stats">
 
@@ -166,22 +172,21 @@ class Tmsm_Customeralliance_Public {
 		</div>
 
 
-		<div itemscope="" itemtype="http://schema.org/Hotel" class="customeralliance-index">
-
+		<div  class="customeralliance-index">
 
 			<div class="customeralliance-rating">
 				<h2>
 					' . __( 'Our Customer Satisfaction Index', 'tmsm-customeralliance' ) . '
 				</h2>
-				<div class="customeralliance-rating" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-					<meta itemprop="itemreviewed" content="' . esc_attr( $customeralliance_reviews->business->name ) . '">
-					<meta itemprop="ratingCount" content="' . esc_attr( $customeralliance_reviews->business->reviewCount ) . '">
-					<meta itemprop="reviewCount" content="' . $customeralliance_stats->globalStatistics->reviewCount . '">
+				<div class="customeralliance-rating"  itemscope="" >
+					<meta  content="' . esc_attr( $customeralliance_reviews->business->name ) . '">
+					<meta  content="' . esc_attr( $customeralliance_reviews->business->reviewCount ) . '">
+					<meta  content="' . $customeralliance_stats->globalStatistics->reviewCount . '">
 					<div class="customeralliance-global-rating">
-						<meta content="5" itemprop="bestRating">
-						<meta content="0" itemprop="worstRating">
+						<meta content="5" >
+						<meta content="0" >
 						<meta content="' . esc_attr( round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage / 20 ), 1 ) )
-				   . '" itemprop="ratingValue">
+				   . '" >
 						<span>' . round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage ) ) . '</span>%
 					</div>
 					<p>
@@ -253,6 +258,8 @@ class Tmsm_Customeralliance_Public {
 				                                  .= '
 					<div class="customeralliance-reviews" data-total="' . $customeralliance_reviews_total . '" data-maxpage="'
 				                                     . $customeralliance_reviews_maxpage . '">';
+
+				$reviews_json = [];
 
 				foreach ( $customeralliance_reviews->reviews->review as $review ) {
 					if ( empty( $review->author ) ) {
@@ -370,24 +377,43 @@ class Tmsm_Customeralliance_Public {
 						.= '
 											</ul>
 
-											<div itemprop="review" itemscope="" itemtype="http://schema.org/Review" style="display: none">
-												<span itemprop="itemReviewed">' . $customeralliance_reviews->business->name . '</span>
-												<span itemprop="author">' . $review->author . '</span>
-												<time itemprop="datePublished" datetime="' . $reviewdate->format( 'Y-m-d' ) . '">'
-						   . $reviewdate->format( 'r' ) . '></time>
-												<span itemprop="reviewBody">' . trim( $review->overallComment ) . '</span>
-												<span itemtype="http://schema.org/Rating" itemscope="itemscope" itemprop="reviewRating">
-													<span itemprop="worstRating" content="0"></span>
-													<span itemprop="bestRating" content="5"></span>
-													<span itemprop="ratingValue" content="' . round( floatval( $review->overallRating ), 1 ) . '"></span>
-												</span>
-											</div>
 										</div>
 							</div>
 							';
+					$reviews_json[] = json_encode([
+						'@type' => 'Review',
+						'author' => strval($review->author),
+						//'author' => is_array($review->author) ? $review->author[0] : $review->author,
+						'datePublished' => $reviewdate->format( 'Y-m-d' ),
+						'description' => trim( $review->overallComment ),
+						'reviewRating' => [
+							'@type' => 'Rating',
+							'bestRating' => '5',
+							'worstRating' => '0',
+							'ratingValue' => round( floatval( $review->overallRating ), 1 ),
+						],
+					]);
 
 					$reviewpage_previous = $reviewpage;
 				}
+
+				$output.='
+				<script type="application/ld+json">
+				{
+				  "@context": "http://schema.org",
+				  "@type": "Hotel",
+				  "aggregateRating": {
+				    "@type": "AggregateRating",
+				    "ratingValue": "'. esc_attr(round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage /20 ),1 ) ) .'",
+				    "reviewCount": "'. $customeralliance_stats->globalStatistics->reviewCount .'",
+				    "ratingCount": "'. esc_attr( $customeralliance_reviews->business->reviewCount ) .'",
+				    "worstRating": "0",
+				    "bestRating": "5"
+				  },
+				  "review":['.implode(',', $reviews_json).'],
+				  "name": "'.esc_attr( $customeralliance_reviews->business->name ) .'", '.(!empty($image) ? '"image": "'.WPSEO_Options::get( 'company_logo' ) .'",' : '').' "url": "'.site_url().'", "priceRange": "$$"
+				}
+				</script>';
 
 				if ( $customeralliance_reviews_maxpage > 1 ) {
 					$output
@@ -493,7 +519,36 @@ class Tmsm_Customeralliance_Public {
 
 		$output = '';
 		if ( ! empty( $customeralliance_stats ) && ! empty( $customeralliance_reviews ) ) {
-			$output = '<div class="customeralliance-badge" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating"><meta itemprop="itemreviewed" content="'.esc_attr( $customeralliance_reviews->business->name ) .'"><meta itemprop="ratingCount" content="'.esc_attr( $customeralliance_reviews->business->reviewCount ).'"><meta itemprop="reviewCount" content="'. $customeralliance_stats->globalStatistics->reviewCount .'"><meta content="5" itemprop="bestRating"><meta content="0" itemprop="worstRating"><meta content="'. esc_attr(round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage /20 ),1 ) ) .'" itemprop="ratingValue"><a href="'. $link .'" title="'. esc_attr(__('Read the customer reviews','tmsm-customeralliance')).'"><span class="customeralliance-title">'. __('Our Customer Satisfaction Index','tmsm-customeralliance') .'</span><span class="customeralliance-rating">'. round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage ) ) .'%</span><span class="customeralliance-content">'. sprintf( __('%d reviews <em>on %d portals</em>','tmsm-customeralliance'), $customeralliance_stats->globalStatistics->reviewCount, $customeralliance_stats->globalStatistics->portalCount ).'</span><span class="customeralliance-more">'. esc_attr(__('Read the customer reviews','tmsm-customeralliance')).'</span><span class="customeralliance-logo"><img width="191" height="161" src="'. plugin_dir_url( __FILE__ ) . 'img/customeralliance-logo-small-'.$atts['theme'].'.png" alt="'. __('Read the customer reviews','tmsm-customeralliance') .'"></span></a></div>';
+
+			$output = '<div class="customeralliance-badge">
+<a href="'. $link .'" title="'. esc_attr(__('Read the customer reviews','tmsm-customeralliance')).'"><span class="customeralliance-title">'. __('Our Customer Satisfaction Index','tmsm-customeralliance') .'</span><span class="customeralliance-rating">'. round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage ) ) .'%</span><span class="customeralliance-content">'. sprintf( __('%d reviews <em>on %d portals</em>','tmsm-customeralliance'), $customeralliance_stats->globalStatistics->reviewCount, $customeralliance_stats->globalStatistics->portalCount ).'</span><span class="customeralliance-more">'. esc_attr(__('Read the customer reviews','tmsm-customeralliance')).'</span><span class="customeralliance-logo"><img width="191" height="161" src="'. plugin_dir_url( __FILE__ ) . 'img/customeralliance-logo-small-'.$atts['theme'].'.png" alt="'. __('Read the customer reviews','tmsm-customeralliance') .'"></span></a></div>';
+
+			$image = null;
+			if(class_exists('WPSEO_Options') && !empty(WPSEO_Options::get( 'company_logo' ))){
+				$image = WPSEO_Options::get( 'company_logo' );
+			}
+
+			$output.='
+			<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "Hotel",
+			  "aggregateRating": {
+			    "@type": "AggregateRating",
+			    "ratingValue": "'. esc_attr(round( floatval( $customeralliance_stats->globalStatistics->averageRatingPercentage /20 ),1 ) ) .'",
+			    "reviewCount": "'. $customeralliance_stats->globalStatistics->reviewCount .'",
+			    "ratingCount": "'. esc_attr( $customeralliance_reviews->business->reviewCount ) .'",
+			    "worstRating": "0",
+			    "bestRating": "5"
+			  },
+			  "name": "'.esc_attr( $customeralliance_reviews->business->name ) .'",
+			  '.(!empty($image) ? '"image": "'.WPSEO_Options::get( 'company_logo' ) .'"' : '').',
+			  
+			  "url": "'.site_url().'",
+			  "priceRange": "$$"
+			}
+			</script>';
+
 		}
 		return $output;
 	}
