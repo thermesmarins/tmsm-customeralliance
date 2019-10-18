@@ -134,6 +134,9 @@ class Tmsm_Customeralliance_Public {
 		if(class_exists('WPSEO_Options') && !empty(WPSEO_Options::get( 'company_logo' ))){
 			$image = WPSEO_Options::get( 'company_logo' );
 		}
+		if(class_exists('RankMath\Helper')){
+			$image = RankMath\Helper::get_settings( 'titles.knowledgegraph_logo' );
+		}
 
 		$output = '';
 

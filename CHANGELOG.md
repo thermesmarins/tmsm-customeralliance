@@ -1,3 +1,5 @@
+* Fix missing Rank Math image in reviews shortcode
+
 ### 1.1.0: October 1st, 2019
 * Fix Schema markup, using ld+json scripts
 * Hotel Schema picks the Organization image from Yoast SEO or Rank Math
