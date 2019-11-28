@@ -148,7 +148,7 @@ class Tmsm_Customeralliance_Public {
 
 		<div class="customeralliance-intro">
 			<div class="customeralliance-logo">
-				<img src="' . plugin_dir_url( __FILE__ ) . 'img/customeralliance-logo-big-' . $atts['theme'] . '.png' . '" alt="'
+				<img src="' . plugin_dir_url( __FILE__ ) . 'img/customeralliance-logo-big-' . $atts['theme'] . '.svg' . '" alt="'
 				   . esc_attr__( 'Customer Alliance Logo', 'tmsm-customeralliance' ) . '">
 			</div>
 

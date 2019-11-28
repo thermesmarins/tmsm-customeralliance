@@ -180,11 +180,10 @@
   margin-left: 10px;
 }
 
-/* */
 @media (min-width: 360px){
 
   .customeralliance-stats .customeralliance-logo{
-    width: 30%;
+    width: 40%;
     padding-right: 2%;
     overflow: hidden;
     display: table-cell;
