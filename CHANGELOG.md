@@ -1,4 +1,5 @@
 * Fix missing Rank Math image in reviews shortcode
+* Updated Customer Alliance logo (as SVG)
 
 ### 1.1.0: October 1st, 2019
 * Fix Schema markup, using ld+json scripts
