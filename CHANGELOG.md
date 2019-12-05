@@ -1,3 +1,4 @@
+### 1.2.1: December 5th, 2019
 * Disable Lazyload on Customer Alliance logo in badge
 
 ### 1.2.0: November 28th, 2019
