@@ -1,3 +1,5 @@
+* Disable Lazyload on Customer Alliance logo in badge
+
 ### 1.2.0: November 28th, 2019
 * Fix missing Rank Math image in reviews shortcode
 * Updated Customer Alliance logo (as SVG)
