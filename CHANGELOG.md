@@ -1,3 +1,5 @@
+* Display review count in source code for each portal
+
 ### 1.2.1: December 5th, 2019
 * Disable Lazyload on Customer Alliance logo in badge
 

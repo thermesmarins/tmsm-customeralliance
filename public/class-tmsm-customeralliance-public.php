@@ -204,14 +204,49 @@ class Tmsm_Customeralliance_Public {
 				<h3>' . __( 'Average rating', 'tmsm-customeralliance' ) . '</h3>
 				<div class="inside">';
 			if ( ! empty( $customeralliance_stats->portalStatistics->portal ) ) {
+
+				$total_rating = 0;
+				$total_reviews = 0;
+
+				$total_rating_filtered = 0;
+				$total_reviews_filtered = 0;
+
+				$excluded_portals = [];
+
 				foreach ( $customeralliance_stats->portalStatistics->portal as $portal ) {
-					$output
-						.= '
-							<div class="customeralliance-portals-item">
+
+					$total_reviews += $portal->reviewCount;
+					$total_rating += $portal->reviewCount*$portal->averageRatingPercentage;
+
+					if(!in_array($portal->name, $excluded_portals )){
+						$total_reviews_filtered += $portal->reviewCount;
+						$total_rating_filtered += $portal->reviewCount*$portal->averageRatingPercentage;
+					}
+
+					//$output .= print_r($portal,true);
+					$output .= '
+							<div class="customeralliance-portals-item" data-reviewcount="'.$portal->reviewCount.'">
 								<span title="' . esc_attr( $portal->name ) . '">' . $portal->name . '</span>
-								<strong>' . round( $portal->averageRatingPercentage ) . '%</strong>
+								<strong>' . round( (float) $portal->averageRatingPercentage ) . '%</strong>
 							</div>';
 				}
+
+				/*echo '$total_rating=';
+				echo $total_rating;
+				echo '$total_reviews=';
+				echo $total_reviews;
+				echo 'average=';
+				echo ($total_rating / $total_reviews);
+
+
+				echo '$total_rating_filtered=';
+				echo $total_rating_filtered;
+				echo '$total_reviews_filtered=';
+				echo $total_reviews_filtered;
+				echo 'average_filtered=';
+				echo ($total_rating_filtered / $total_reviews_filtered);*/
+
+
 			}
 			$output
 				.= '
