@@ -142,7 +142,7 @@ class Tmsm_Customeralliance_Public {
 
 
 		if ( ! empty( $customeralliance_stats ) && ! empty( $customeralliance_reviews ) ) {
-			print_r($customeralliance_reviews->business,  true);
+
 			$output
 				.= '<div class="customeralliance-stats">
 
@@ -223,7 +223,6 @@ class Tmsm_Customeralliance_Public {
 						$total_rating_filtered += $portal->reviewCount*$portal->averageRatingPercentage;
 					}
 
-					//$output .= print_r($portal,true);
 					$output .= '
 							<div class="customeralliance-portals-item" data-reviewcount="'.$portal->reviewCount.'">
 								<span title="' . esc_attr( $portal->name ) . '">' . $portal->name . '</span>
@@ -288,6 +287,7 @@ class Tmsm_Customeralliance_Public {
 		</div>'; // index
 
 			if ( ! empty( $customeralliance_reviews->reviews->review ) ) {
+
 				$customeralliance_reviews_cpt     = 0;
 				$reviewpage_previous              = 0;
 				$customeralliance_reviews_total   = count( $customeralliance_reviews->reviews->review );
@@ -300,6 +300,7 @@ class Tmsm_Customeralliance_Public {
 				$reviews_json = [];
 
 				foreach ( $customeralliance_reviews->reviews->review as $review ) {
+
 					if ( empty( $review->author ) ) {
 						$review->author = __( 'Anonymous', 'tmsm-customeralliance' );
 					}
