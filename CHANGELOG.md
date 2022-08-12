@@ -1,5 +1,7 @@
+### 1.2.2: August 12th, 2022
 * Display review count in source code for each portal
 * Remove debug
+* PHP 8.0 compatibility
 
 ### 1.2.1: December 5th, 2019
 * Disable Lazyload on Customer Alliance logo in badge
